@@ -6,7 +6,7 @@
 
 Используем библиотеки Pandas и Matplotlib для работы с данными и создания графиков.
 
-```
+```python
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,20 +16,21 @@ import seaborn as sns
 
 
 Загружаем данные из файла:
-
+```python
 df = pd.read_csv('path_to_your_file.csv')
-
+```
 
 #### 2. Исследование структуры данных
 
 Посмотрим на первые строки данных и проверим типы данных в каждом столбце:
 
 # Посмотреть первые 5 строк
-```
+
+```python
 df.head()
 ```
 # Проверить типы данных
-```
+```python
 df.info()
 ```
 
@@ -38,7 +39,7 @@ df.info()
 Рассчитаем основные статистические характеристики числовых столбцов:
 
 # Основные статистики
-```
+```python
 df.describe()
 ```
 
@@ -47,7 +48,7 @@ df.describe()
 Создадим графики для числовых переменных:
 
 # Гистограмма для likes_count
-```
+```python
 plt.figure(figsize=(10, 6))
 plt.hist(df['likes_count'], bins=10)
 plt.xlabel('Likes Count')
@@ -62,7 +63,7 @@ plt.show()
 #### 5. Анализ текстовой информации
 
 Проанализируем текстовые столбцы, такие как text_original и text_additional. Найдем наиболее часто встречающиеся слова и хештеги:
-```
+```python
 def extract_hashtags(text):
     return re.findall(r'#\w+', text)
 
@@ -74,12 +75,13 @@ plt.show()
 #### 6. Поиск корреляций
 
 Вычислим корреляционную матрицу для числовых столбцов:
-```
+```python
 corr = df[['likes_count', 'shares_count', 'comments_count', 'views_count']].corr()
 ```
+
 # Отображение корреляционной матрицы
 
-```
+```python
 sns.heatmap(corr, annot=True)
 plt.show()
 ```
